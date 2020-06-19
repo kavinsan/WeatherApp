@@ -1,0 +1,1 @@
+export const mapsSelector = (state) => state.AppReducer.get('maps');
