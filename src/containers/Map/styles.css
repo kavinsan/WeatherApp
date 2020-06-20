@@ -2,9 +2,9 @@
   transition: all 0.3s linear 0s;
   display: flex;
   flex-direction: column;
-  height: 200px;
-  width: 100px;
-  align-items: flex-start;
+  /* margin-left:15px; */
+  margin: 0 auto;
+  align-items: center;
 }
 
 .markerInfo:hover {
@@ -14,12 +14,16 @@
 .markerInfo .forecastHeader {
   display: flex;
   align-items: center;
+  width: 100%;
+  padding-left: 5px;
+  justify-content: space-between;
 }
 
 .markerInfo .forecastHeader .forecastCity {
-  font-size: 20px;
+  font-size: 15px;
   text-decoration: underline;
   font-weight: bold;
+  color: white;
 }
 
 .markerInfo .forecastHeader .forecastTitle {
@@ -33,6 +37,85 @@
   /* background-color: black;
   border-radius: 999999999px; */
   margin: 5px;
+}
+
+.markerInfo .infoContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-left:5px;
+  width:200px;
+}
+.markerInfo .infoContainer .temperatureInfoContainer {
+  display: flex;
+  width:100%;
+}
+.markerInfo .infoContainer .temperatureInfoContainer .infoLabel{
+  margin:0px;
+  font-size: 20px;
+  align-self: center;
+  display: flex;
+}
+.markerInfo .infoContainer .temperatureInfoContainer .infoLabel:first-child{
+  padding-right: 5px;
+  margin-right: 5px;
+  border-right: 2px solid #585858;
+  align-self: flex-start;
+}
+.markerInfo .infoContainer .temperatureInfoContainer .infoLabel:nth-child(2){
+  display: flex;
+  flex-direction: column;
+}
+.markerInfo .infoContainer .temperatureInfoContainer .infoLabel span:nth-child(2){
+  font-size: 10px;
+}
+.markerInfo .infoContainer .infoLabel{ 
+  margin-right:10px
+}
+.markerInfo .atmostphereInfoContainer {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  padding: 20px 0px;
+}
+.markerInfo .atmostphereInfoContainer .infoLabel {
+  color: white;
+  font-weight: bold;
+}
+
+.markerInfo .atmostphereInfoContainer .infoLabel .infoValue {
+  color: black;
+  font-weight: normal;
+}
+
+.markerInfo .atmostphereInfoContainer .infoLabel:first-child {
+  margin-right: 30px;
+}
+.markerInfo .atmostphereInfoContainer .infoLabel .infoValue {
+  padding-left: 5px;
+}
+.markerInfo .sunsetInfoContainer {
+  display: flex;
+  align-self: center;
+  width: 150px;
+  flex-direction: column;
+}
+.markerInfo .sunsetInfoContainer .infoLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  color: white;
+}
+.markerInfo .sunsetInfoContainer .infoValue {
+  color: black;
+  font-weight: normal;
+}
+.markerInfo .sunsetInfoContainer .infoLabel:first-child {
+  border-bottom: 2px solid #585858;
+}
+
+.gm-style-iw-c {
+  padding-left: 0 !important;
 }
 .gm-style .gm-style-iw-c {
   background-color: rgba(255, 255, 255, 0.3);

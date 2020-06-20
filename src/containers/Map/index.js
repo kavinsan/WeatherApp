@@ -21,7 +21,7 @@ const WeatherMap = compose(
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyBChly4zscXfXskkuev6N_TPtSHzPlwFp8&libraries=drawing",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
+    containerElement: <div style={{ height: `100vh` }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -35,9 +35,16 @@ const WeatherMap = compose(
   };
   const { cities, citiesForecasts } = props;
   console.log(citiesForecasts);
-  const [height, setHeight] = useState(100);
+  const [height, setHeight] = useState(200);
   const [citiesMarkers, setCitiesMarkers] = useState([]);
   console.log(localStorage);
+  const handleActiveMarker = (index) => {
+    if (active == index) {
+      return setActive(null);
+    }
+    return setActive(index);
+  };
+
   const markers = citiesForecasts
     ? citiesForecasts.map((city, index) => {
         let temperature = Math.round(Number(city.main.temp));
@@ -48,13 +55,16 @@ const WeatherMap = compose(
         let type = city.weather[0].main;
         let description = city.weather[0].description;
         let humidity = city.main.humidity;
-        let feelsLike = city.main.feels_like;
+        let wind = city.wind.speed;
+        let sunrise = new Date(city.sys.sunrise * 1000);
+        let sunset = new Date(city.sys.sunset * 1000);
+        let feelsLike = Math.round(Number(city.main.feels_like));
         console.log(type);
         let markerStyle = {
           url: markerIconUrl,
           scaledSize: new window.google.maps.Size(70, 75),
         };
-        let markerInfoStyle = { width: "180px", height: `${height}px` };
+        let markerInfoStyle = { width: "210px", height: `${height}px` };
         return (
           <div>
             <Marker
@@ -69,30 +79,62 @@ const WeatherMap = compose(
               icon={{
                 ...markerStyle,
               }}
-              onClick={() => setActive(index)}
+              onClick={() => handleActiveMarker(index)}
             ></Marker>
             {active == index && (
               <InfoWindow
                 position={{ lat: lat + 0.001, lng: lng }}
                 onCloseClick={() => {
                   setActive(null);
-                  setHeight(100);
                 }}
               >
                 <div className="markerInfo" style={{ ...markerInfoStyle }}>
                   <div className="forecastHeader">
-                    <span className="forecastCity">{`${name}`} </span>
+                    <span className="forecastCity">{`${name}, BC`} </span>
                     <img
                       className="forecastIcon"
                       style={{ width: "45px", height: "45px" }}
                       src={markerIconUrl}
-                      onClick={() => {
-                        setHeight(200);
-                      }}
-                    ></img>
+                    />
                   </div>
-                  <span className="forecastTitle">{`${temperature}°C`}</span>
-                  <span className="forecastDescription">{`${description}`}</span>
+                  <div className="infoContainer">
+                    <div className="temperatureInfoContainer">
+                      <label className="infoLabel">
+                        <span className="forecastTitle">{`${temperature}°C`}</span>
+                      </label>
+                      <label className="infoLabel">
+                        <span className="forecastFeelsLike">{`${feelsLike}°C`}</span>
+                        <span className="forecastFeelsLike">Feels Like</span>
+                      </label>
+                    </div>
+                    <label className="infoLabel">
+                      <span className="forecastDescription">{`${description}`}</span>
+                    </label>
+                  </div>
+                  <div className="atmostphereInfoContainer">
+                    <label className="infoLabel">
+                      Humidity
+                      <span className="infoValue">{`${humidity}%`}</span>
+                    </label>
+                    <label className="infoLabel">
+                      Wind
+                      <span className="infoValue">{`${wind}mph`}</span>
+                    </label>
+                  </div>
+                  <div className="sunsetInfoContainer">
+                    <label className="infoLabel">
+                      Sunset
+                      <span className="infoValue">{`${sunrise.toLocaleTimeString(
+                        "en-US"
+                      )}`}</span>
+                    </label>
+                    <label className="infoLabel">
+                      Sunset
+                      <span className="infoValue">{`${sunset.toLocaleTimeString(
+                        "en-US"
+                      )}`}</span>
+                    </label>
+                  </div>
                 </div>
               </InfoWindow>
             )}

@@ -8,12 +8,15 @@ const App = (props) => {
   const { dispatch, maps } = props;
 
   useEffect(() => {
-    dispatch({type:"FETCH_CITIES_FORECAST"})
+    dispatch({ type: "FETCH_CITIES_FORECAST" });
   }, [maps]);
 
   return (
     <div className="App">
-      <WeatherMap />
+      <div className="container">
+        <div className="box"></div>
+        <WeatherMap />
+      </div>
     </div>
   );
 };
