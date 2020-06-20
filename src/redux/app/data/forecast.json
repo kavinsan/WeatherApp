@@ -1,0 +1,303 @@
+{
+  "Dease Lake": {
+    "coord": {
+      "lon": -129.99,
+      "lat": 58.44
+    },
+    "weather": [
+      {
+        "id": 803,
+        "main": "Clouds",
+        "description": "broken clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 291.15,
+      "feels_like": 289.21,
+      "temp_min": 291.15,
+      "temp_max": 291.15,
+      "pressure": 1008,
+      "humidity": 52
+    },
+    "visibility": 14484,
+    "wind": {
+      "speed": 2.1,
+      "deg": 0
+    },
+    "clouds": {
+      "all": 75
+    },
+    "dt": 1592595277,
+    "sys": {
+      "type": 1,
+      "id": 777,
+      "country": "CA",
+      "sunrise": 1592566317,
+      "sunset": 1592632258
+    },
+    "timezone": -25200,
+    "id": 5936286,
+    "name": "Dease Lake",
+    "cod": 200
+  },
+  "Fort Nelson": {
+    "coord": {
+      "lon": -122.7,
+      "lat": 58.81
+    },
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "scattered clouds",
+        "icon": "03d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 299.15,
+      "feels_like": 296.96,
+      "temp_min": 299.15,
+      "temp_max": 299.15,
+      "pressure": 1007,
+      "humidity": 36
+    },
+    "visibility": 48279,
+    "wind": {
+      "speed": 3.1,
+      "deg": 80
+    },
+    "clouds": {
+      "all": 40
+    },
+    "dt": 1592595376,
+    "sys": {
+      "type": 1,
+      "id": 986,
+      "country": "CA",
+      "sunrise": 1592564349,
+      "sunset": 1592630726
+    },
+    "timezone": -25200,
+    "id": 5955902,
+    "name": "Fort Nelson",
+    "cod": 200
+  },
+  "Terrace": {
+    "coord": {
+      "lon": -128.6,
+      "lat": 54.52
+    },
+    "weather": [
+      {
+        "id": 500,
+        "main": "Rain",
+        "description": "light rain",
+        "icon": "10d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 289.15,
+      "feels_like": 289.81,
+      "temp_min": 289.15,
+      "temp_max": 289.15,
+      "pressure": 1010,
+      "humidity": 87
+    },
+    "visibility": 24140,
+    "wind": {
+      "speed": 0.79,
+      "deg": 5
+    },
+    "clouds": {
+      "all": 90
+    },
+    "dt": 1592595398,
+    "sys": {
+      "type": 1,
+      "id": 984,
+      "country": "CA",
+      "sunrise": 1592567887,
+      "sunset": 1592630020
+    },
+    "timezone": -25200,
+    "id": 6162949,
+    "name": "Terrace",
+    "cod": 200
+  },
+  "Prince George": {
+    "coord": {
+      "lon": -122.75,
+      "lat": 53.92
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 297.09,
+      "feels_like": 295.71,
+      "temp_min": 296.15,
+      "temp_max": 297.59,
+      "pressure": 1012,
+      "humidity": 49
+    },
+    "visibility": 14484,
+    "wind": {
+      "speed": 3.1,
+      "deg": 0
+    },
+    "clouds": {
+      "all": 1
+    },
+    "dt": 1592595220,
+    "sys": {
+      "type": 1,
+      "id": 980,
+      "country": "CA",
+      "sunrise": 1592566725,
+      "sunset": 1592628374
+    },
+    "timezone": -25200,
+    "id": 6113365,
+    "name": "Prince George",
+    "cod": 200
+  },
+  "Whistler": {
+    "coord": {
+      "lon": -122.97,
+      "lat": 50.12
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 295.15,
+      "feels_like": 293.33,
+      "temp_min": 295.15,
+      "temp_max": 295.15,
+      "pressure": 1015,
+      "humidity": 46
+    },
+    "visibility": 24140,
+    "wind": {
+      "speed": 2.6,
+      "deg": 180
+    },
+    "clouds": {
+      "all": 90
+    },
+    "dt": 1592595527,
+    "sys": {
+      "type": 1,
+      "id": 146,
+      "country": "CA",
+      "sunrise": 1592568103,
+      "sunset": 1592627101
+    },
+    "timezone": -25200,
+    "id": 6180144,
+    "name": "Whistler",
+    "cod": 200
+  },
+  "Revelstoke": {
+    "coord": {
+      "lon": -118.2,
+      "lat": 50.98
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 291.15,
+      "feels_like": 288.9,
+      "temp_min": 291.15,
+      "temp_max": 291.15,
+      "pressure": 1015,
+      "humidity": 68
+    },
+    "visibility": 14484,
+    "wind": {
+      "speed": 4.1,
+      "deg": 180
+    },
+    "clouds": {
+      "all": 90
+    },
+    "dt": 1592595373,
+    "sys": {
+      "type": 1,
+      "id": 922,
+      "country": "CA",
+      "sunrise": 1592566685,
+      "sunset": 1592626230
+    },
+    "timezone": -25200,
+    "id": 6121621,
+    "name": "Revelstoke",
+    "cod": 200
+  },
+  "Creston": {
+    "coord": {
+      "lon": -116.5,
+      "lat": 49.1
+    },
+    "weather": [
+      {
+        "id": 800,
+        "main": "Clear",
+        "description": "clear sky",
+        "icon": "01d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 296.21,
+      "feels_like": 295.41,
+      "temp_min": 295.15,
+      "temp_max": 297.59,
+      "pressure": 1015,
+      "humidity": 53
+    },
+    "visibility": 16093,
+    "wind": {
+      "speed": 2.45,
+      "deg": 215
+    },
+    "clouds": {
+      "all": 1
+    },
+    "dt": 1592595730,
+    "sys": {
+      "type": 1,
+      "id": 3031,
+      "country": "CA",
+      "sunrise": 1592566857,
+      "sunset": 1592625241
+    },
+    "timezone": -25200,
+    "id": 5932311,
+    "name": "Creston",
+    "cod": 200
+  }
+}

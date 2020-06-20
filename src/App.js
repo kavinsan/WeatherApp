@@ -8,7 +8,7 @@ const App = (props) => {
   const { dispatch, maps } = props;
 
   useEffect(() => {
-    console.log(maps);
+    dispatch({type:"FETCH_CITIES_FORECAST"})
   }, [maps]);
 
   return (

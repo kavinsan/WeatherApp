@@ -1,0 +1,43 @@
+.markerInfo {
+  transition: all 0.3s linear 0s;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  width: 100px;
+  align-items: flex-start;
+}
+
+.markerInfo .forecastHeader {
+    display: flex;
+    align-items: center;
+}
+
+.markerInfo .forecastHeader .forecastCity {
+  font-size: 20px;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.markerInfo .forecastHeader .forecastTitle {
+  font-size: 15px;
+  font-weight: bold;
+}
+.markerInfo .forecastDescription {
+  text-transform: capitalize;
+}
+.markerInfo .forecastIcon {
+  /* background-color: black;
+  border-radius: 999999999px; */
+  margin: 5px;
+}
+.gm-style .gm-style-iw-c {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.gm-style .gm-style-iw-c .gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.gm-style .gm-style-iw-t {
+  top: -70px !important;
+}

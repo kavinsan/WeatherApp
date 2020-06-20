@@ -8,77 +8,135 @@ import {
 } from "react-google-maps";
 import { MarkerWithLabel } from "react-google-maps/lib/components/addons/MarkerWithLabel";
 import { compose, withProps } from "recompose";
+import mapStyles from "./mapStyles";
+import {
+  citiesSelector,
+  citiesForecastsSelector,
+} from "../../redux/app/selectors";
+import { connect } from "react-redux";
+import "./styles.css";
 
 const WeatherMap = compose(
   withProps({
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyBChly4zscXfXskkuev6N_TPtSHzPlwFp8&libraries=drawing",
-    loadingElement: <div style={{ height: `100vh` }} />,
+    loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100vh` }} />,
-    mapElement: <div style={{ height: `100vh` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
   withGoogleMap
 )((props) => {
   const [toggle, setToggle] = useState(false);
   const [markerEnter, setMarkerEnter] = useState(false);
-  const markerStyle = {
-    url:
-      "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png",
-    scaledSize: new window.google.maps.Size(55, 55),
-  };
+  const [active, setActive] = useState(null);
   const labelStyle = {
     transition: "all 0.3s linear",
   };
+  const { cities, citiesForecasts } = props;
+  console.log(citiesForecasts);
+  const [height, setHeight] = useState(100);
+  const [citiesMarkers, setCitiesMarkers] = useState([]);
+  console.log(localStorage)
+  const markers = citiesForecasts
+    ? citiesForecasts.map((city, index) => {
+        let temperature = Math.round(Number(city.main.temp));
+        let markerIconUrl = `http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`;
+        let name = city.name;
+        let lng = city.coord.lon;
+        let lat = city.coord.lat;
+        let type = city.weather[0].main;
+        let description = city.weather[0].description;
+        let humidity = city.main.humidity;
+        let feelsLike = city.main.feels_like;
+        console.log(type);
+        let markerStyle = {
+          url: markerIconUrl,
+          scaledSize: new window.google.maps.Size(70, 75),
+        };
+        let markerInfoStyle = { width: "180px", height: `${height}px` };
+        return (
+          <div>
+            {/* <MarkerWithLabel
+              position={{ lat: lat, lng: lng }}
+              labelAnchor={new window.google.maps.Point(100, 120)}
+              labelStyle={{
+                visibility: toggle ? "visible" : "hidden",
+                fontSize: "22px",
+                padding: "16px",
+                width: "200px",
+              }}
+              icon={{
+                url: markerIconUrl,
+                scaledSize: new window.google.maps.Size(0, 0),
+              }}
+            >
+              <div className="markerInfo" style={{ ...labelStyle }}>
+                Hello There!
+                <img
+                  style={{
+                    position: "absolute",
+                    backgroundColor: "yellow",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                  src={
+                    "https://s3.ca-central-1.amazonaws.com/cryptomibs/8256dee88e0a477886e5854dd499e3e3-225.png"
+                  }
+                ></img>
+              </div>
+            </MarkerWithLabel> */}
+            <Marker
+              position={{ lat: lat, lng: lng }}
+              labelAnchor={new window.google.maps.Point(100, 120)}
+              label={{
+                text: `${temperature}°C`,
+                color: "black",
+                fontWeight: "900",
+                fontSize: "15px",
+              }}
+              icon={{
+                ...markerStyle,
+              }}
+              onClick={() => setActive(index)}
+            ></Marker>
+            {active == index && (
+              <InfoWindow
+                position={{ lat: lat + 0.001, lng: lng }}
+                onCloseClick={() => {
+                  setActive(null);
+                  setHeight(100);
+                }}
+              >
+                <div className="markerInfo" style={{ ...markerInfoStyle }}>
+                  <div className="forecastHeader">
+                    <span className="forecastCity">{`${name}`} </span>
+                    <img
+                      className="forecastIcon"
+                      style={{ width: "45px", height: "45px" }}
+                      src={markerIconUrl}
+                      onClick={() => {
+                        setHeight(200);
+                      }}
+                    ></img>
+                  </div>
+                  <span className="forecastTitle">{`${temperature}°C`}</span>
+                  <span className="forecastDescription">{`${description}`}</span>
+                </div>
+              </InfoWindow>
+            )}
+          </div>
+        );
+      })
+    : null;
+
   return (
     <GoogleMap
-      defaultZoom={8}
-      defaultCenter={{ lat: 49.049999, lng: -122.316666 }}
+      defaultZoom={5.5}
+      defaultCenter={{ lat: 53.92, lng: -122.75 }}
+      defaultOptions={{ styles: mapStyles }}
     >
-      <MarkerWithLabel
-        position={{ lat: 49.049999, lng: -122.316666 }}
-        labelAnchor={new window.google.maps.Point(100, 120)}
-        labelStyle={{
-          visibility: toggle ? "visible" : "hidden",
-          fontSize: "22px",
-          padding: "16px",
-          width: "200px",
-        }}
-        icon={{
-          url:
-            "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-512.png",
-          scaledSize: new window.google.maps.Size(0, 0),
-        }}
-      >
-        <div style={{ ...labelStyle }}>
-          Hello There!
-          <img
-            style={{
-              position: "absolute",
-              backgroundColor: "yellow",
-              width: "100px",
-              height: "100px",
-            }}
-            src={
-              "https://s3.ca-central-1.amazonaws.com/cryptomibs/8256dee88e0a477886e5854dd499e3e3-225.png"
-            }
-          ></img>
-        </div>
-      </MarkerWithLabel>
-      <Marker
-        position={{ lat: 49.049999, lng: -122.316666 }}
-        labelAnchor={new window.google.maps.Point(0, 0)}
-        label={{
-          text:  "23°",
-          color: "white",
-          fontSize: "bold",
-          fontSize: "15px",
-        }}
-        icon={{
-          ...markerStyle,
-        }}
-        onClick={() => setToggle(!toggle)}
-      ></Marker>
+      {citiesForecasts && markers}
       {/* {toggle == true && (
         <InfoWindow
           position={{ lat: 49.049999, lng: -122.316666 }}
@@ -99,4 +157,12 @@ const WeatherMap = compose(
     </GoogleMap>
   );
 });
-export default WeatherMap;
+
+const mapStateToProps = (state) => {
+  return {
+    cities: citiesSelector(state),
+    citiesForecasts: citiesForecastsSelector(state),
+  };
+};
+
+export default connect(mapStateToProps, null)(WeatherMap);
