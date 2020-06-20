@@ -7,9 +7,13 @@
   align-items: flex-start;
 }
 
+.markerInfo:hover {
+  transform: "scale(1.05)";
+}
+
 .markerInfo .forecastHeader {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .markerInfo .forecastHeader .forecastCity {

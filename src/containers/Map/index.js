@@ -21,7 +21,7 @@ const WeatherMap = compose(
     googleMapURL:
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyBChly4zscXfXskkuev6N_TPtSHzPlwFp8&libraries=drawing",
     loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `100vh` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
   withScriptjs,
@@ -37,7 +37,7 @@ const WeatherMap = compose(
   console.log(citiesForecasts);
   const [height, setHeight] = useState(100);
   const [citiesMarkers, setCitiesMarkers] = useState([]);
-  console.log(localStorage)
+  console.log(localStorage);
   const markers = citiesForecasts
     ? citiesForecasts.map((city, index) => {
         let temperature = Math.round(Number(city.main.temp));
@@ -57,35 +57,6 @@ const WeatherMap = compose(
         let markerInfoStyle = { width: "180px", height: `${height}px` };
         return (
           <div>
-            {/* <MarkerWithLabel
-              position={{ lat: lat, lng: lng }}
-              labelAnchor={new window.google.maps.Point(100, 120)}
-              labelStyle={{
-                visibility: toggle ? "visible" : "hidden",
-                fontSize: "22px",
-                padding: "16px",
-                width: "200px",
-              }}
-              icon={{
-                url: markerIconUrl,
-                scaledSize: new window.google.maps.Size(0, 0),
-              }}
-            >
-              <div className="markerInfo" style={{ ...labelStyle }}>
-                Hello There!
-                <img
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "yellow",
-                    width: "50px",
-                    height: "50px",
-                  }}
-                  src={
-                    "https://s3.ca-central-1.amazonaws.com/cryptomibs/8256dee88e0a477886e5854dd499e3e3-225.png"
-                  }
-                ></img>
-              </div>
-            </MarkerWithLabel> */}
             <Marker
               position={{ lat: lat, lng: lng }}
               labelAnchor={new window.google.maps.Point(100, 120)}
@@ -137,23 +108,6 @@ const WeatherMap = compose(
       defaultOptions={{ styles: mapStyles }}
     >
       {citiesForecasts && markers}
-      {/* {toggle == true && (
-        <InfoWindow
-          position={{ lat: 49.049999, lng: -122.316666 }}
-          onCloseClick={() => {
-            setToggle(false);
-          }}
-        >
-          <div style={{ width: "100px", height: "100px" }}>
-            <img
-              style={{ width: "100px", height: "100px" }}
-              src={
-                "https://s3.ca-central-1.amazonaws.com/cryptomibs/8256dee88e0a477886e5854dd499e3e3-225.png"
-              }
-            ></img>
-          </div>
-        </InfoWindow>
-      )} */}
     </GoogleMap>
   );
 });
