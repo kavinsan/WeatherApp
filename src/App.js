@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import { mapsSelector } from "./redux/app/selectors";
 import WeatherMap from "./containers/Map/index";
 const App = (props) => {
-  const { dispatch, maps } = props;
+  const { dispatch } = props;
 
   useEffect(() => {
     dispatch({ type: "FETCH_CITIES_FORECAST" });
-  }, [maps]);
+  }, []);
 
   return (
     <div className="App">
@@ -23,7 +23,6 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    maps: mapsSelector(state),
   };
 };
 

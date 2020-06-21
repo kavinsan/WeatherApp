@@ -1,10 +1,9 @@
 import { call, put, takeEvery, takeLatest, delay } from "redux-saga/effects";
 import store from "../store";
-import forecastData from "./data/forecast.json";
 import axios from "axios";
+import forecastData from "./data/forecast.json";
 
 export default function* FusionSaga() {
-  yield takeLatest("FETCH_TEST", fetchTest);
   yield takeLatest("FETCH_CITIES_FORECAST", fetchCitiesForecast);
 }
 
@@ -12,13 +11,6 @@ export default function* FusionSaga() {
 // https://api.openweathermap.org/data/2.5/weather?q=toronto&appid=448ebdf0283de0ba8ff12c50d734acbf
 // https://openweathermap.org/weather-conditions#Icon-list
 // http://api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&units=metric
-function* fetchTest(action) {
-  yield call(fetchTestRequest, action);
-}
-
-function fetchTestRequest(action) {
-  console.log("hey");
-}
 
 function* fetchCitiesForecast(action) {
   let cities = {

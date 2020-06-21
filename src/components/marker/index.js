@@ -27,7 +27,7 @@ const Marker = (props) => {
     url: forecastIconUrl,
     scaledSize: new window.google.maps.Size(70, 75),
   };
-
+  
   return (
     <MapMarker
       position={{ lat: lat, lng: lng }}

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
+import { compose, withProps } from "recompose";
 import Marker from "../../components/marker/index.js";
 import MarkerInfo from "../../components/markerInfo/index.js";
-
-import { compose, withProps } from "recompose";
-import mapStyles from "./mapStyles";
 import { citiesForecastsSelector } from "../../redux/app/selectors";
-import { connect } from "react-redux";
-import "./styles.css";
+import mapStyles from "./mapStyles";
 
 const WeatherMap = compose(
   withProps({
@@ -48,6 +46,7 @@ const WeatherMap = compose(
               lat={lat}
               lng={lng}
               temperature={temperature}
+              forecastIcon
               forecastIconUrl={forecastIconUrl}
             />
             {activeMarkerId == markerId && ( // If active marker is set to the marker id then open popup
