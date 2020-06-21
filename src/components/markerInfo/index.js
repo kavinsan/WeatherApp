@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { InfoWindow } from "react-google-maps";
 import InfoLabel from "../infoLabel/index.js";
 import "./styles.css";
@@ -17,9 +17,8 @@ const MarkerInfo = (props) => {
     sunrise,
     sunset,
     setActiveMarkerId,
-    markerId,
   } = props;
-  
+
   const markerInfoStyle = { width: "210px", height: `200px` };
 
   return (
@@ -46,7 +45,7 @@ const MarkerInfo = (props) => {
           </div>
           <span className="forecastFeelsLike">Feels Like</span>
           <span className="forecastDescription">
-          <InfoLabel value={description} />
+            <InfoLabel value={description} />
           </span>
         </div>
         <div className="atmostphereInfoContainer">

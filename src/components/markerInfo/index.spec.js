@@ -2,6 +2,10 @@ import React from "react";
 import { shallow } from "enzyme";
 import MarkerInfo from "./index.js";
 
+/**
+ * - A mock up dependency for the google maps api would need to be created to
+ * successfully test components containing any react google maps components
+ */
 describe("Test MarkerInfo Component", () => {
   const cityName = "Toronto";
   const forecastIconUrl = `http://openweathermap.org/img/wn/04d@2x.png`;

@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Marker as MapMarker } from "react-google-maps";
-import { connect } from "react-redux";
 import "./styles.css";
 
 const Marker = (props) => {
@@ -14,16 +13,19 @@ const Marker = (props) => {
     forecastIconUrl,
   } = props;
 
+  /**
+   * Only allows one marker to be opened at a time
+   */
   const handleActiveMarker = () => {
     // If the marker is already opened then close
-    if (activeMarkerId == markerId) {
+    if (activeMarkerId === markerId) {
       return setActiveMarkerId(null);
     }
     // Set id of marker to be opened
     return setActiveMarkerId(markerId);
   };
 
-  const markerStyle = { // Dynamic Image for Icon
+  const markerStyle = { // Dynamic styling for icons
     url: forecastIconUrl,
     scaledSize: new window.google.maps.Size(70, 75),
   };

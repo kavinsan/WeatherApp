@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps";
 import { compose, withProps } from "recompose";
@@ -20,7 +20,6 @@ const WeatherMap = compose(
 )((props) => {
   const [activeMarkerId, setActiveMarkerId] = useState(null);
   const { citiesForecasts } = props;
-  console.log(localStorage);
 
   const markers = citiesForecasts
     ? citiesForecasts.map((city, markerId) => {
@@ -37,7 +36,7 @@ const WeatherMap = compose(
         let sunrise = new Date(city.sys.sunrise * 1000); // Get time
         let sunset = new Date(city.sys.sunset * 1000); // Get time
         return (
-          <div>
+          <div key={markerId}>
             <Marker
               setActiveMarkerId={setActiveMarkerId}
               activeMarkerId={activeMarkerId}
@@ -48,7 +47,7 @@ const WeatherMap = compose(
               forecastIcon
               forecastIconUrl={forecastIconUrl}
             />
-            {activeMarkerId == markerId && ( // If active marker is set to the marker id then open popup
+            {activeMarkerId === markerId && ( // If active marker is set to the marker id then open popup
               <MarkerInfo
                 cityName={cityName}
                 forecastIconUrl={forecastIconUrl}
@@ -62,7 +61,6 @@ const WeatherMap = compose(
                 sunrise={sunrise}
                 sunset={sunset}
                 setActiveMarkerId={setActiveMarkerId}
-                markerId={markerId}
               />
             )}
           </div>

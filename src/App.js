@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { connect } from "react-redux";
-import { mapsSelector } from "./redux/app/selectors";
+import "./App.css";
 import WeatherMap from "./containers/Map/index";
 const App = (props) => {
   const { dispatch } = props;
 
   useEffect(() => {
     dispatch({ type: "FETCH_CITIES_FORECAST" });
-  }, []);
+  });
 
   return (
     <div className="App">
@@ -21,9 +19,5 @@ const App = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-  };
-};
 
-export default connect(mapStateToProps, null)(App);
+export default connect(null,null)(App);
