@@ -15,13 +15,15 @@ const Marker = (props) => {
   } = props;
 
   const handleActiveMarker = () => {
+    // If the marker is already opened then close
     if (activeMarkerId == markerId) {
       return setActiveMarkerId(null);
     }
+    // Set id of marker to be opened
     return setActiveMarkerId(markerId);
   };
 
-  const markerStyle = {
+  const markerStyle = { // Dynamic Image for Icon
     url: forecastIconUrl,
     scaledSize: new window.google.maps.Size(70, 75),
   };

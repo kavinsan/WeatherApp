@@ -25,31 +25,32 @@ const WeatherMap = compose(
   console.log(localStorage);
 
   const markers = citiesForecasts
-    ? citiesForecasts.map((city, index) => {
+    ? citiesForecasts.map((city, markerId) => {
+        // Extract data
         let cityName = city.name;
         let forecastIconUrl = `http://openweathermap.org/img/wn/${city.weather[0].icon}@2x.png`;
         let lng = city.coord.lon;
         let lat = city.coord.lat;
-        let temperature = Math.round(Number(city.main.temp));
+        let temperature = Math.round(Number(city.main.temp)); // Round to whole number
         let feelsLikeTemperature = Math.round(Number(city.main.feels_like));
         let description = city.weather[0].description;
         let humidity = city.main.humidity;
         let wind = city.wind.speed;
-        let sunrise = new Date(city.sys.sunrise * 1000);
-        let sunset = new Date(city.sys.sunset * 1000);
+        let sunrise = new Date(city.sys.sunrise * 1000); // Get time
+        let sunset = new Date(city.sys.sunset * 1000); // Get time
 
         return (
           <div>
             <Marker
               setActiveMarkerId={setActiveMarkerId}
               activeMarkerId={activeMarkerId}
-              markerId={index}
+              markerId={markerId}
               lat={lat}
               lng={lng}
               temperature={temperature}
               forecastIconUrl={forecastIconUrl}
             />
-            {activeMarkerId == index && (
+            {activeMarkerId == markerId && ( // If active marker is set to the marker id then open popup
               <MarkerInfo
                 cityName={cityName}
                 forecastIconUrl={forecastIconUrl}
@@ -63,7 +64,7 @@ const WeatherMap = compose(
                 sunrise={sunrise}
                 sunset={sunset}
                 setActiveMarkerId={setActiveMarkerId}
-                markerId={index}
+                markerId={markerId}
               />
             )}
           </div>

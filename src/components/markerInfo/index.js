@@ -19,6 +19,7 @@ const MarkerInfo = (props) => {
     setActiveMarkerId,
     markerId,
   } = props;
+  
   const markerInfoStyle = { width: "210px", height: `200px` };
 
   return (
