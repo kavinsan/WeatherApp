@@ -11,13 +11,9 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <div className="container">
-        <div className="box"></div>
-        <WeatherMap />
-      </div>
+      <WeatherMap />
     </div>
   );
 };
 
-
-export default connect(null,null)(App);
+export default connect(null, null)(App);
