@@ -33,6 +33,7 @@ const MarkerInfo = (props) => {
         <div className="forecastHeader">
           <span className="forecastCity">{`${cityName}, BC`} </span>
           <img
+            alt={"forecastIcon"}
             className="forecastIcon"
             style={{ width: "45px", height: "45px" }}
             src={forecastIconUrl}
@@ -44,7 +45,9 @@ const MarkerInfo = (props) => {
             <InfoLabel value={`${feelsLikeTemperature}°C`} />
           </div>
           <span className="forecastFeelsLike">Feels Like</span>
+          <span className="forecastDescription">
           <InfoLabel value={description} />
+          </span>
         </div>
         <div className="atmostphereInfoContainer">
           <InfoLabel title="Humidity" value={`${humidity}%`} />

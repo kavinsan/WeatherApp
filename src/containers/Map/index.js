@@ -36,7 +36,6 @@ const WeatherMap = compose(
         let wind = city.wind.speed;
         let sunrise = new Date(city.sys.sunrise * 1000); // Get time
         let sunset = new Date(city.sys.sunset * 1000); // Get time
-
         return (
           <div>
             <Marker
