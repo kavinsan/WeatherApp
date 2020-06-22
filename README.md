@@ -1,4 +1,6 @@
-Weather App Prototype. Fetching forecasts for defined cities and superimposing data into google maps api.
+<h1>Weather App Prototype.<h1>
+
+Fetching forecasts for defined cities and superimposing data into google maps api.
 
 Map of British Columbia and the selected cities (Dease Lake,Fort Nelson,Terrace,Prince George,
     Whistler,Revelstoke,Creston). Icons are based on the forecast and includes the current temperature.
