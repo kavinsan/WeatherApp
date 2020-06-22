@@ -1,5 +1,5 @@
 <h1>Weather App Prototype.<h1>
-
+<p>
 Fetching forecasts for defined cities and superimposing data into google maps api.
 
 Map of British Columbia and the selected cities (Dease Lake,Fort Nelson,Terrace,Prince George,
@@ -7,6 +7,7 @@ Map of British Columbia and the selected cities (Dease Lake,Fort Nelson,Terrace,
 <img src="https://github.com/kavinsan/WeatherApp/blob/master/images/weatherApp1.png"/>
 When clicking a marker, a popup representing additional forecast details will appear.
 <img src="https://github.com/kavinsan/WeatherApp/blob/master/images/weatherApp2.png"/>
+</p>
 Built using:
 - HTML & CSS
 - React.js
