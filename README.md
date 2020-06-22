@@ -1,5 +1,5 @@
 
-
+<img src="https://github.com/kavinsan/WeatherApp/blob/master/images/weatherApp1.png"/>
 Built using:
 - HTML & CSS
 - React.js
