@@ -1,4 +1,4 @@
-<h1>Weather App Prototype <img width="50" src="http://openweathermap.org/img/wn/02d@2x.png"/></h1>
+<h1>Weather App Prototype <img border-radius="999999" width="50" src="http://openweathermap.org/img/wn/02d@2x.png"/></h1>
 
 Fetching forecasts for defined cities and superimposing data into google maps api.
 
