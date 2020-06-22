@@ -54,6 +54,7 @@ function fetchCitiesForecastRequest(cities) {
       return cities[city];
     });
     let citiesIdString = cityIds.join();
+    // API key should be stored in the backend for production
     let url = `http://api.openweathermap.org/data/2.5/group?id=${citiesIdString}&units=metric&appid=448ebdf0283de0ba8ff12c50d734acbf`;
     axios({
       method: "get",

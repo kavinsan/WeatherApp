@@ -7,6 +7,7 @@ import MarkerInfo from "../../components/markerInfo/index.js";
 import { citiesForecastsSelector } from "../../redux/app/selectors";
 import mapStyles from "./mapStyles";
 
+// Google API key should be stored in the backend for production
 const WeatherMap = compose(
   withProps({
     googleMapURL:
