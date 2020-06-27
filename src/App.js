@@ -11,7 +11,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <WeatherMap />
+      <WeatherMap/>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { call, takeLatest } from "redux-saga/effects";
 import store from "../store";
 import axios from "axios";
 import { FETCH_CITIES_FORECAST } from "./constants";
+import config from "../../config.json";
+const openWeatherApi = config.openWeatherApi;
 
 export default function* FusionSaga() {
   yield takeLatest(FETCH_CITIES_FORECAST, fetchCitiesForecast);
@@ -55,7 +57,7 @@ function fetchCitiesForecastRequest(cities) {
     });
     let citiesIdString = cityIds.join();
     // API key should be stored in the backend for production
-    let url = `http://api.openweathermap.org/data/2.5/group?id=${citiesIdString}&units=metric&appid=448ebdf0283de0ba8ff12c50d734acbf`;
+    let url = `http://api.openweathermap.org/data/2.5/group?id=${citiesIdString}&units=metric&appid=${openWeatherApi}`;
     axios({
       method: "get",
       url: url,
@@ -76,6 +78,3 @@ function fetchCitiesForecastRequest(cities) {
     store.dispatch({ type: "SET_CITIES_FORECASTS", payload: data });
   }
 }
-
-// AIzaSyBChly4zscXfXskkuev6N_TPtSHzPlwFp8
-// https://api.openweathermap.org/data/2.5/weather?q=toronto&appid=448ebdf0283de0ba8ff12c50d734acbf

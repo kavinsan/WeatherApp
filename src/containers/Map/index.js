@@ -6,12 +6,14 @@ import Marker from "../../components/marker/index.js";
 import MarkerInfo from "../../components/markerInfo/index.js";
 import { citiesForecastsSelector } from "../../redux/app/selectors";
 import mapStyles from "./mapStyles";
+import config from "../../config.json";
+const googleApi = config.googleApi;
 
 // Google API key should be stored in the backend for production
 const WeatherMap = compose(
   withProps({
     googleMapURL:
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyBChly4zscXfXskkuev6N_TPtSHzPlwFp8&libraries=drawing",
+      `https://maps.googleapis.com/maps/api/js?key=${googleApi}&libraries=drawing`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100vh`, width: "100%" }} />,
     mapElement: <div style={{ height: `100%` }} />,
