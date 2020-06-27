@@ -14,6 +14,16 @@ Built using:
 - Redux & Redux Saga
 
 ### Usage
+<b>Note: You must have a google API key and a openWeather API key to use this.</b>
+
+Create a config.json file in ./src and add your api keys like so:
+
+```
+{
+    "googleApi": "API KEY HERE",
+    "openWeatherApi": "API KEY HERE"
+}
+```
 
 Install the dependencies and start the server.
 
